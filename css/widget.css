@@ -1,0 +1,736 @@
+/* line 757, ../sass/partials/_mixins.scss */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* !============================================= */
+/* ! Variables						  			  */
+/* !============================================= */
+/* !-- Universal ------------------------------------ */
+/* !-- Project ------------------------------------ */
+/* !-- Project ------------------------------------ */
+/* !-- Paths ------------------------------------ */
+/* line 7, ../sass/partials/_base.scss */
+.viz-article {
+  margin: 0 auto;
+  height: 100%;
+  color: #33312e;
+  font-size: 15px;
+  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 16, ../sass/partials/_base.scss */
+.viz-container {
+  position: relative;
+  background-color: white;
+}
+
+/* line 21, ../sass/partials/_base.scss */
+.viz-detail {
+  color: #99948a;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 80%;
+}
+
+/* line 30, ../sass/partials/_base.scss */
+.viz-overline {
+  margin: 0 0 5px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #ccc6b9;
+  color: #99948a;
+  font-weight: 300;
+  font-size: 11px;
+}
+
+/* line 39, ../sass/partials/_base.scss */
+.viz-title {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 0;
+  font-weight: 600;
+  font-size: 42px;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+  line-height: 90%;
+}
+@media (min-width: 620px) {
+  /* line 39, ../sass/partials/_base.scss */
+  .viz-title {
+    font-size: 42px;
+  }
+}
+
+/* line 51, ../sass/partials/_base.scss */
+.viz-underline {
+  margin-top: 0;
+  color: #33312e;
+  font-weight: 300;
+  line-height: 140%;
+}
+
+/* line 58, ../sass/partials/_base.scss */
+.viz-copy {
+  color: #66635d;
+  font-weight: 300;
+  line-height: 140%;
+}
+
+/* line 64, ../sass/partials/_base.scss */
+.viz-byline {
+  letter-spacing: .5px;
+  line-height: 90%;
+}
+
+/* line 69, ../sass/partials/_base.scss */
+.viz-content-block {
+  margin: 0 0 40px;
+}
+
+/* line 73, ../sass/partials/_base.scss */
+.viz-content-header {
+  margin: 0 0 30px;
+}
+
+/* line 77, ../sass/partials/_base.scss */
+.viz-overline-wrapper {
+  position: relative;
+  margin: 0 0 5px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #33312e;
+}
+
+/* line 84, ../sass/partials/_base.scss */
+.viz-subhed {
+  margin: 0 0 10px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #ccc6b9;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* line 92, ../sass/partials/_base.scss */
+.viz-subhed-select {
+  padding-bottom: 7px;
+}
+
+/* line 96, ../sass/partials/_base.scss */
+.viz-header-wrapper {
+  *zoom: 1;
+  position: relative;
+}
+/* line 38, ../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.viz-header-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 104, ../sass/partials/_base.scss */
+.viz-button {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* line 109, ../sass/partials/_base.scss */
+.viz-subhead {
+  margin: 0 0 20px;
+  padding: 7px 10px;
+  background: black;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-size: 24px;
+  font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 122, ../sass/partials/_base.scss */
+.viz-subhead-recipes {
+  display: none;
+}
+
+/* line 126, ../sass/partials/_base.scss */
+.viz-ingredients {
+  margin: 0 0 40px;
+  padding: 0;
+}
+
+/* line 131, ../sass/partials/_base.scss */
+.viz-ingredient-item {
+  *zoom: 1;
+  display: none;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+/* line 38, ../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.viz-ingredient-item:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 138, ../sass/partials/_base.scss */
+.viz-number {
+  float: left;
+  margin: 0;
+  padding-right: 11px;
+  width: 35px;
+  background-image: url("/img/number_bground.png");
+  background-size: auto 40px;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+  font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
+  line-height: 40px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 154, ../sass/partials/_base.scss */
+.viz-ingredient-header {
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: table;
+  height: 40px;
+}
+
+/* line 167, ../sass/partials/_base.scss */
+.viz-ingredient-info {
+  margin-left: 25px;
+}
+
+/* line 171, ../sass/partials/_base.scss */
+.viz-ingredient-thumb {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #33312e;
+  background-image: url("http://upload.wikimedia.org/wikipedia/commons/7/7f/Citrus_australasica_green_fruit1.JPG");
+  background-size: auto 40px;
+}
+
+/* line 179, ../sass/partials/_base.scss */
+.viz-ingredient-name {
+  vertical-align: middle;
+  padding: 0 0 0 5px;
+  font-weight: 600;
+  line-height: 120%;
+  font-size: 18px;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+  display: table-cell;
+}
+
+/* line 189, ../sass/partials/_base.scss */
+.viz-arrow {
+  -webkit-transition: rotate 0.2s ease-in-out;
+  -moz-transition: rotate 0.2s ease-in-out;
+  -o-transition: rotate 0.2s ease-in-out;
+  transition: rotate 0.2s ease-in-out;
+  margin-left: -1px;
+  color: #33312e;
+  font-size: 13px;
+}
+
+/* line 196, ../sass/partials/_base.scss */
+.viz-ingredient-description {
+  display: none;
+  margin: 0;
+  margin: 0 0 0 -25px;
+  color: #66635d;
+  font-size: 14px;
+  line-height: 140%;
+}
+@media (min-width: 620px) {
+  /* line 196, ../sass/partials/_base.scss */
+  .viz-ingredient-description {
+    margin: 0 0 0 10px;
+  }
+}
+
+/* line 208, ../sass/partials/_base.scss */
+.viz-readmore {
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -moz-transition: background-color 0.2s ease-in-out;
+  -o-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+  color: #33312e;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+/* line 214, ../sass/partials/_base.scss */
+.viz-readmore:hover {
+  padding: 1px 3px;
+  background-color: #ccc6b9;
+}
+
+/* line 226, ../sass/partials/_base.scss */
+.viz-svg-wrap {
+  margin: 0 auto 30px;
+  width: 200px;
+  height: 180px;
+  cursor: pointer;
+}
+
+/* line 31, ../sass/widget.scss */
+#page .page-inner {
+  background-image: none;
+}
+
+/* line 35, ../sass/widget.scss */
+.full-view {
+  padding-left: 0;
+}
+
+/* line 39, ../sass/widget.scss */
+#page.kind-longread #page-main .after-body {
+  margin: 0;
+}
+
+/* line 43, ../sass/widget.scss */
+#page .page-inner {
+  background-image: none;
+}
+
+/* line 47, ../sass/widget.scss */
+#page.kind-longread #page-main article.full-view > header {
+  padding-right: 0 !important;
+}
+
+/* line 51, ../sass/widget.scss */
+#page.kind-longread #page-main article.full-view .prose.body {
+  padding-right: 0 !important;
+}
+
+/* line 55, ../sass/widget.scss */
+#page-body {
+  padding: 0 20px;
+}
+@media (min-width: 620px) {
+  /* line 55, ../sass/widget.scss */
+  #page-body {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 850px) {
+  /* line 55, ../sass/widget.scss */
+  #page-body {
+    padding: 0 50px;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 55, ../sass/widget.scss */
+  #page-body {
+    padding: 0 200px 0 20px;
+  }
+}
+
+/* line 68, ../sass/widget.scss */
+#page.kind-longread #page-main article.full-view > header .title {
+  margin-top: 24px;
+  margin-bottom: 15px;
+}
+
+/* line 73, ../sass/widget.scss */
+.full-view .byline {
+  display: none;
+}
+
+/* line 81, ../sass/widget.scss */
+.full-view > header .deck, .full-view > header .deck p {
+  font-weight: 500 !important;
+  margin-bottom: 0;
+}
+
+/* line 90, ../sass/widget.scss */
+.prose.body * {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+/* line 94, ../sass/widget.scss */
+.prose.body form {
+  margin: 0 0 -15px 0;
+}
+/* line 98, ../sass/widget.scss */
+.prose.body p, .prose.body p:first-child, .prose.body p:first-line {
+  font-family: inherit !important;
+  color: inherit;
+  line-height: inherit;
+  font-weight: inherit !important;
+}
+/* line 105, ../sass/widget.scss */
+.prose.body label {
+  margin: 0;
+}
+/* line 110, ../sass/widget.scss */
+.prose.body ol {
+  list-style-type: none;
+  line-height: 100%;
+}
+/* line 115, ../sass/widget.scss */
+.prose.body ol > li {
+  width: auto;
+}
+/* line 119, ../sass/widget.scss */
+.prose.body ol > li:before {
+  position: static;
+}
+/* line 123, ../sass/widget.scss */
+.prose.body ul > li:before {
+  content: none;
+}
+/* line 130, ../sass/widget.scss */
+.prose.body .viz-graphic-text {
+  color: #ff8a80;
+}
+/* line 134, ../sass/widget.scss */
+.prose.body .viz-interactive-text {
+  color: #b781ff;
+}
+/* line 138, ../sass/widget.scss */
+.prose.body .viz-product-text {
+  color: #819fff;
+}
+/* line 142, ../sass/widget.scss */
+.prose.body .viz-architecture-text {
+  color: #ff81f4;
+}
+/* line 146, ../sass/widget.scss */
+.prose.body .viz-graphic-img {
+  background-color: #ff8a80;
+}
+/* line 150, ../sass/widget.scss */
+.prose.body .viz-interactive-img {
+  background-color: #b781ff;
+}
+/* line 154, ../sass/widget.scss */
+.prose.body .viz-product-img {
+  background-color: #819fff;
+}
+/* line 158, ../sass/widget.scss */
+.prose.body .viz-architecture-img {
+  background-color: #ff81f4;
+}
+/* line 162, ../sass/widget.scss */
+.prose.body .viz-title {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 500 !important;
+  font-size: 42px;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+  line-height: 90%;
+  font-color: #33312e;
+}
+/* line 173, ../sass/widget.scss */
+.prose.body .viz-native-copy {
+  line-height: 160%;
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+/* line 181, ../sass/widget.scss */
+.prose.body .viz-bracket {
+  margin: 24px 0;
+  margin-right: -312px;
+}
+/* line 186, ../sass/widget.scss */
+.prose.body .viz-legend {
+  margin: 0 0 0 4px;
+  list-style-type: none !important;
+  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
+}
+/* line 192, ../sass/widget.scss */
+.prose.body .viz-legend-item {
+  position: static;
+  margin: 0 15px 5px 0;
+  padding: 0;
+  width: auto;
+  list-style-type: none !important;
+  font-size: 30px;
+  line-height: 40%;
+}
+/* line 200, ../sass/widget.scss */
+.prose.body .viz-legend-item:before {
+  margin-left: -5px;
+  padding-right: 2px;
+  content: "\002022";
+}
+/* line 205, ../sass/widget.scss */
+.prose.body .viz-legend-item:last-of-type {
+  margin-right: 0;
+}
+/* line 210, ../sass/widget.scss */
+.prose.body .viz-legend-item {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  margin: 0 15px 5px 0;
+  background-color: white;
+  font-size: 36px;
+  line-height: 40%;
+}
+/* line 217, ../sass/widget.scss */
+.prose.body .viz-legend-item:before {
+  margin-left: -5px;
+  padding-right: 2px;
+  color: inherit;
+  content: "\002022" !important;
+}
+/* line 223, ../sass/widget.scss */
+.prose.body .viz-legend-item:last-of-type {
+  margin-right: 0;
+}
+/* line 228, ../sass/widget.scss */
+.prose.body .viz-detail {
+  color: #99948a;
+}
+/* line 232, ../sass/widget.scss */
+.prose.body .viz-bracket-date-list {
+  margin: 0 0 30px;
+}
+/* line 236, ../sass/widget.scss */
+.prose.body .viz-bracket-date {
+  position: absolute;
+  padding: 0;
+  font-size: 11px;
+}
+/* line 240, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(1) {
+  left: 0px;
+}
+/* line 243, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(2) {
+  left: 12%;
+}
+/* line 246, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(3) {
+  left: 23%;
+}
+/* line 249, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(4) {
+  left: 34%;
+}
+/* line 252, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(5) {
+  left: 47%;
+}
+/* line 255, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(6) {
+  right: 34%;
+}
+/* line 258, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(7) {
+  right: 23%;
+}
+/* line 261, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(8) {
+  right: 12%;
+}
+/* line 264, ../sass/widget.scss */
+.prose.body .viz-bracket-date:nth-of-type(9) {
+  right: 0px;
+}
+/* line 269, ../sass/widget.scss */
+.prose.body .viz-bracket-competitor-name {
+  font-weight: 500;
+}
+/* line 273, ../sass/widget.scss */
+.prose.body .viz-info-instructions, .prose.body .viz-info-instructions:first-child, .prose.body .viz-info-instructions:first-line {
+  color: #33312e;
+  font-size: 12px !important;
+  line-height: 130%;
+}
+/* line 279, ../sass/widget.scss */
+.prose.body .viz-headshot {
+  max-width: none;
+}
+/* line 283, ../sass/widget.scss */
+.prose.body .viz-designer-name, .prose.body .viz-designer-job {
+  margin-bottom: 0;
+}
+/* line 287, ../sass/widget.scss */
+.prose.body .viz-bracket-designer-description, .prose.body .viz-bracket-designer-description:first-child, .prose.body .viz-bracket-designer-description:first-line {
+  margin-bottom: 0;
+  color: #99948a;
+  font-size: 12px !important;
+  line-height: 140%;
+}
+/* line 294, ../sass/widget.scss */
+.prose.body .viz-designer-name, .prose.body .viz-designer-name:first-child, .prose.body .viz-designer-name:first-line {
+  margin-bottom: 2px;
+  color: #33312e;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  line-height: 100%;
+}
+/* line 302, ../sass/widget.scss */
+.prose.body .viz-designer-job, .prose.body .viz-designer-job:first-child, .prose.body .viz-designer-job:first-line {
+  color: #99948a;
+  font-size: 11px !important;
+  line-height: 120%;
+}
+/* line 308, ../sass/widget.scss */
+.prose.body .viz-champion-name, .prose.body .viz-champion-name:first-child, .prose.body .viz-champion-name:first-line {
+  margin: 0 0 5px;
+  font-weight: 500 !important;
+  font-size: 12px !important;
+  line-height: 80%;
+  color: #33312e;
+}
+/* line 316, ../sass/widget.scss */
+.prose.body .viz-champion-seed {
+  font-weight: 300;
+}
+/* line 320, ../sass/widget.scss */
+.prose.body .viz-champion-headshot {
+  max-width: none;
+  width: 60px;
+}
+/* line 325, ../sass/widget.scss */
+.prose.body .viz-champion-label, .prose.body .viz-champion-label:first-child, .prose.body .viz-champion-label:first-line {
+  margin: 0;
+  color: #99948a;
+  font-size: 10px !important;
+  line-height: 80%;
+}
+/* line 332, ../sass/widget.scss */
+.prose.body .viz-underline {
+  color: #33312e;
+  line-height: 160% !important;
+  font-size: 15px !important;
+}
+/* line 343, ../sass/widget.scss */
+.prose.body .viz-quiz {
+  max-width: none;
+}
+/* line 347, ../sass/widget.scss */
+.prose.body .viz-choices-group {
+  margin: 0 0 20px;
+  list-style-type: none !important;
+  vertical-align: top;
+}
+/* line 353, ../sass/widget.scss */
+.prose.body .viz-choice-item {
+  position: static;
+  margin-bottom: 0;
+  padding: 5px 0;
+  width: 100%;
+  list-style-type: none !important;
+}
+/* line 359, ../sass/widget.scss */
+.prose.body .viz-choice-item:nth-child(2n) {
+  margin-bottom: 10px;
+}
+/* line 362, ../sass/widget.scss */
+.prose.body .viz-choice-item:last-of-type {
+  padding-bottom: 0;
+}
+/* line 367, ../sass/widget.scss */
+.prose.body .viz-division .viz-choice-loser {
+  margin-bottom: 0;
+  padding: 5px 0 0px;
+}
+/* line 372, ../sass/widget.scss */
+.prose.body .viz-vs {
+  color: #ccc6b9;
+  line-height: 120%;
+}
+/* line 377, ../sass/widget.scss */
+.prose.body .viz-submitted-alert {
+  margin: -25px 0 10px;
+  padding: 5px;
+  color: #ccc6b9;
+  font-size: 11px !important;
+}
+/* line 384, ../sass/widget.scss */
+.prose.body .viz-designer-description, .prose.body .viz-designer-description:first-child, .prose.body .viz-designer-description:first-line {
+  margin: 0px;
+  padding: 10px 0;
+  color: #99948a;
+  font-size: 12px !important;
+  line-height: 140%;
+}
+/* line 392, ../sass/widget.scss */
+.prose.body .viz-choice-loser .viz-designer-name, .prose.body .viz-choice-loser .viz-designer-name:first-child, .prose.body .viz-choice-loser .viz-designer-name:first-line {
+  color: #99948a !important;
+  font-weight: 300 !important;
+}
+/* line 401, ../sass/widget.scss */
+.prose.body .viz-rankings {
+  max-width: none;
+}
+/* line 405, ../sass/widget.scss */
+.prose.body .viz-division-finals {
+  width: 100%;
+  margin-bottom: 35px !important;
+  padding: 0;
+}
+/* line 411, ../sass/widget.scss */
+.prose.body .viz-division-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none !important;
+}
+/* line 417, ../sass/widget.scss */
+.prose.body .viz-division {
+  margin: 0 0 35px;
+}
+/* line 421, ../sass/widget.scss */
+.prose.body .viz-group-2 .viz-division:last-of-type {
+  margin-bottom: 0;
+}
+/* line 426, ../sass/widget.scss */
+.prose.body .viz-division-button {
+  border: none;
+}
+/* line 430, ../sass/widget.scss */
+.prose.body .viz-division-title {
+  text-transform: uppercase;
+  font-weight: 300 !important;
+  font-size: 11px !important;
+  line-height: 80%;
+}
+/* line 437, ../sass/widget.scss */
+.prose.body .viz-division-name {
+  font-family: "MuseoSans", Helvetica, Arial, sans-serif;
+}
+/* line 441, ../sass/widget.scss */
+.prose.body .viz-division-round {
+  margin: 10px 0 16px;
+  color: #33312e;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif !important;
+}
+/* line 449, ../sass/widget.scss */
+.prose.body .viz-division-designers-list {
+  padding: 0 10px;
+  margin: 0;
+  list-style-type: none;
+}
+/* line 455, ../sass/widget.scss */
+.prose.body .viz-transition {
+  position: absolute;
+}
+/* line 457, ../sass/widget.scss */
+.prose.body .viz-transition .viz-vs {
+  opacity: 0;
+}

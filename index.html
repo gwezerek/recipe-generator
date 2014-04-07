@@ -1,0 +1,56 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<title>Recipe Generator</title>
+	<link rel="stylesheet" href="css/site.css">
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.2.0/snap.svg-min.js"></script>
+</head>
+
+<body>
+	<article class="viz-article">
+		<div class="viz-container">
+			<!-- BRACKET MOD -->
+			<section class="viz-content-block">
+				<div class="viz-svg-wrap"></div>
+				<h4 class="viz-subhead">Ingredients</h4>
+				<ul class="viz-ingredients">
+				</ul>
+				<h4 class="viz-subhead viz-subhead-recipes">Suggested Recipes</h4>
+			</section>
+
+		</div>
+
+		<!-- Templates for Questions -->
+		<script type="text/template" class="viz-ingredient-template">
+			<li class="viz-ingredient-item">
+				<p class="viz-number"><%= temp_index %></p>
+				<div class="viz-ingredient-info">
+					<div class="viz-ingredient-header">
+						<div class="viz-ingredient-thumb"></div>
+						<h5 class="viz-ingredient-name"><%= ingredient %>&nbsp;<span class="viz-arrow">&#x25bc;</span></h5>
+					</div>
+					<p class="viz-ingredient-description"><%= description %> <a href="<%= page_url %>" class="viz-readmore">Read&nbsp;more&nbsp;&hellip;</a></p>
+				</div>
+			</li>
+		</script>
+
+		<script type="text/javascript" src="js/quiz.js"></script>
+
+	</article>
+
+</body>
+
+</html>

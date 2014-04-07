@@ -1,0 +1,231 @@
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+//  Base styles            
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+.viz-article {
+	margin: 0 auto;
+	height: 100%;
+	color: $txt-black;
+	font-size: 15px;
+	font-family: $sans;
+	text-rendering: optimizeLegibility;
+}
+
+.viz-container {
+	position: relative;
+	background-color: $bground;
+}
+
+.viz-detail {
+    color: $med-gray;
+    text-transform: uppercase;
+	letter-spacing: .5px;
+    font-weight: 300;
+    font-size: 11px;
+	line-height: 80%;
+}
+
+.viz-overline {
+	margin: 0 0 5px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid $light-gray;
+	color: $med-gray;
+	font-weight: 300;
+	font-size: 11px;
+}
+
+.viz-title {
+	@include inline-block;
+	margin: 0;
+	font-weight: 600;
+	font-size: 42px;
+	font-family: $slab;
+	line-height: 90%;
+	@media (min-width: $small) {
+		font-size: 42px;
+	}
+}
+
+.viz-underline {
+	margin-top: 0;
+	color: $txt-black;
+	font-weight: 300;
+	line-height: 140%;
+}
+
+.viz-copy {
+	color: $dark-gray;
+	font-weight: 300;
+	line-height: 140%;
+}
+
+.viz-byline {
+	letter-spacing: .5px;
+	line-height: 90%;
+}
+
+.viz-content-block {
+	margin: 0 0 40px;
+}
+
+.viz-content-header {
+	margin: 0 0 30px;
+}
+
+.viz-overline-wrapper {
+	position: relative;
+	margin: 0 0 5px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid $txt-black;
+}
+
+.viz-subhed {
+	margin: 0 0 10px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid $light-gray;
+	font-weight: 500;
+	font-size: 13px;
+}
+
+.viz-subhed-select {
+	padding-bottom: 7px;
+}
+
+.viz-header-wrapper {
+	@include pie-clearfix;
+	position: relative;
+}
+
+
+
+// Ingredients
+.viz-button {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.viz-subhead {
+	margin: 0 0 20px;
+	padding: 7px 10px;
+	background: black;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 500;
+	font-size: 24px;
+	font-family: $condensed;
+	-webkit-font-smoothing: antialiased;
+}
+
+.viz-subhead-recipes {
+	display: none;
+}
+
+.viz-ingredients {
+	margin: 0 0 40px;
+	padding: 0;
+}
+
+.viz-ingredient-item {
+	@include pie-clearfix;
+	display: none;
+	margin-bottom: 10px;
+	list-style-type: none;
+}
+
+.viz-number {
+	float: left;
+	margin: 0;
+	padding-right: 11px;
+	width: 35px;
+	background-image: url('/img/number_bground.png');
+	background-size: auto 40px;
+	color: white;
+	text-align: center;
+	font-weight: 500;
+	font-size: 15px;
+	font-family: $condensed;
+	line-height: 40px;
+	-webkit-font-smoothing: antialiased;
+}
+
+.viz-ingredient-header {
+	margin-bottom: 10px;
+	cursor: pointer;
+	display: table;
+	height: 40px;
+}
+
+.viz-ingredient-active {
+	.viz-arrow {
+
+	}
+}
+
+.viz-ingredient-info {
+	margin-left: 25px;
+}
+
+.viz-ingredient-thumb {
+	width: 40px;
+	height: 40px;
+	border: 2px solid $txt-black;
+	background-image: url("http://upload.wikimedia.org/wikipedia/commons/7/7f/Citrus_australasica_green_fruit1.JPG");
+	background-size: auto 40px;
+}
+
+.viz-ingredient-name {
+	vertical-align: middle;
+	padding: 0 0 0 5px;
+	font-weight: 600;
+	line-height: 120%;
+	font-size: 18px;
+	font-family: $slab;	
+	display: table-cell;
+}
+
+.viz-arrow {
+	@include trans(0.2s, rotate, ease-in-out);
+	margin-left: -1px;
+	color: $txt-black;
+	font-size: 13px;
+}
+
+.viz-ingredient-description {
+	display: none;
+	margin: 0;
+	margin: 0 0 0 -25px;
+	color: $dark-gray;
+	font-size: 14px;
+	line-height: 140%;
+	@media (min-width: $small) {
+		margin: 0 0 0 10px;
+	}
+}
+
+.viz-readmore {
+	@include trans(0.2s, background-color, ease-in-out);
+	color: $txt-black;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 12px;
+	&:hover {
+		padding: 1px 3px;
+		background-color: $light-gray;
+	}
+}
+
+
+
+
+
+
+// SVG Animation
+.viz-svg-wrap {
+	margin: 0 auto 30px;
+	width: 200px;
+	height: 180px;
+	cursor: pointer;
+}
