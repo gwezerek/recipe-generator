@@ -29,7 +29,7 @@
 					<img class="viz-basket" src="/img/basket_bw.png" />
 					<h4 class="viz-subhead">Your Ingredients</h4>
 				</header>
-				<p class="viz-copy">Click the basket to generate your own basket of mystery ingredients.</p>
+				<p class="viz-copy">Click the basket icon above to generate your own selection of mystery ingredients.</p>
 				<ul class="viz-ingredients">
 				</ul>
 			</section>
@@ -44,19 +44,19 @@
 							<h5 class="viz-ingredient-name"><%= ingredient %></h5>
 							<h6 class="viz-number"><%= temp_index %></h6>
 						</div>
-						<div class="viz-thumb-container">
-							<img class="viz-ingredient-thumb" src="http://lh6.ggpht.com/rJ8M7hA-rb4fqclnvHU02BbiRFtMjmeHeGVZhRaqc8F7uecs-e0RrjUt-HFQatmd5S_uu2wldMr7MyeFpxcAVQ=s230-c" />
-						</div>
 						<p class="viz-ingredient-description"><%= description %> <a href="<%= page_url %>" class="viz-readmore"><a href="<%= page_url %>" class="viz-readmore">Read&nbsp;more&nbsp;&hellip;</a></p>
+						<div class="viz-thumb-container">
+							<img class="viz-ingredient-thumb" src="<%= image_url %>" />
+						</div>
 					</div>
 					<ul class="viz-recipes">
 						<li class="viz-recipes-item">
-							<h7 class="viz-recipe-overline">Food.com</h7>
-							<a href="#0" class="viz-recipe-title">Yuca with Yogurt Mojo</a>
+							<h7 class="viz-recipe-overline"><%= recipe1_source %></h7>
+							<a href="<%= recipe1_url %>" class="viz-recipe-title"><%= recipe1_name %></a>
 						</li>
 						<li class="viz-recipes-item">
-							<a class="viz-recipe-overline">Simply Gluten Free</a>
-							<a href="#0" class="viz-recipe-title">Gluten Free Yuca Breads with Spicy Sugar Free Mango Marmalade</a>
+							<a class="viz-recipe-overline"><%= recipe2_source %></a>
+							<a href="<%= recipe2_url %>" class="viz-recipe-title"><%= recipe2_name %></a>
 						</li>
 					</ul>
 				</li>

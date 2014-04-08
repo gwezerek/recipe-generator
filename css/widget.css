@@ -215,10 +215,12 @@
 
 /* line 172, ../sass/partials/_base.scss */
 .viz-ingredient-thumb {
+  border-top: 1px solid #33312e;
+  padding-top: 15px;
   width: 100%;
 }
 
-/* line 176, ../sass/partials/_base.scss */
+/* line 178, ../sass/partials/_base.scss */
 .viz-ingredient-name {
   display: inline-block;
   margin: 0;
@@ -229,14 +231,14 @@
   font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
 }
 
-/* line 186, ../sass/partials/_base.scss */
+/* line 188, ../sass/partials/_base.scss */
 .viz-ingredient-description {
   margin: 0 0 10px;
   font-size: 14px;
   line-height: 140%;
 }
 
-/* line 192, ../sass/partials/_base.scss */
+/* line 194, ../sass/partials/_base.scss */
 .viz-readmore {
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
@@ -250,25 +252,30 @@
   font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
-/* line 201, ../sass/partials/_base.scss */
+/* line 203, ../sass/partials/_base.scss */
 .viz-readmore:hover {
   color: #66635d;
 }
 
-/* line 206, ../sass/partials/_base.scss */
+/* line 208, ../sass/partials/_base.scss */
 .viz-recipes {
   padding: 0;
 }
 
-/* line 210, ../sass/partials/_base.scss */
+/* line 212, ../sass/partials/_base.scss */
 .viz-recipes-item {
   margin: 0;
   padding: 10px 0;
   border-top: 1px solid #33312e;
   list-style-type: none;
 }
-
 /* line 217, ../sass/partials/_base.scss */
+.viz-recipes-item:nth-of-type(1) {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* line 223, ../sass/partials/_base.scss */
 .viz-recipe-overline {
   display: block;
   margin-bottom: 3px;
@@ -280,7 +287,7 @@
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
 
-/* line 228, ../sass/partials/_base.scss */
+/* line 234, ../sass/partials/_base.scss */
 .viz-recipe-title {
   display: block;
   color: #33312e;
@@ -288,7 +295,7 @@
   font-size: 14px;
 }
 
-/* line 239, ../sass/partials/_base.scss */
+/* line 245, ../sass/partials/_base.scss */
 .viz-svg-wrap {
   margin: 0 auto 30px;
   width: 200px;
