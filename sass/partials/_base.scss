@@ -140,7 +140,7 @@
 	margin: 0;
 	padding-right: 11px;
 	width: 35px;
-	background-image: url('/img/number_bground.png');
+	background-image: url('http://www.guswezerek.com/projects/recipe_generator/img/number_bground.png');
 	background-size: auto 40px;
 	color: white;
 	text-align: center;
@@ -180,14 +180,13 @@
 	vertical-align: middle;
 	padding: 0 0 0 5px;
 	font-weight: 600;
-	line-height: 120%;
+	line-height: 90%;
 	font-size: 18px;
 	font-family: $slab;	
 	display: table-cell;
 }
 
 .viz-arrow {
-	@include trans(0.2s, rotate, ease-in-out);
 	margin-left: -1px;
 	color: $txt-black;
 	font-size: 13px;
@@ -206,14 +205,13 @@
 }
 
 .viz-readmore {
-	@include trans(0.2s, background-color, ease-in-out);
-	color: $txt-black;
+	@include trans(0.2s, color, ease-in-out);
+	color: $dark-gray;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 12px;
 	&:hover {
-		padding: 1px 3px;
-		background-color: $light-gray;
+		color: $med-gray;
 	}
 }
 

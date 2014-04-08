@@ -3,7 +3,7 @@
 // SETUP VARIABLES
 // =============================================
 var spreadsheetURL = "/ingredients_pass_2.csv";
-// var spreadsheetURL = "http://www.guswezerek.com/projects/recipes/ingredients.csv";
+// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients_pass_2.csv";
 
 // For template
 var vizEven = false;
@@ -44,20 +44,21 @@ function populateIngredients(data) {
 	
 	// Compile the list
 	for (i = 0; i < ingredientsData.ingredients.length; i++) {
-		console.log(ingredientsData.ingredients[i]);
 		toAppendString += ingredientsTemplate(ingredientsData.ingredients[i]);
 	}
 
 	// Fade out current list 
-	$(".viz-ingredients-item").fadeOut(200);
+	hideRecipes();
 
 	// Append the list
 	$(".viz-ingredients").html(toAppendString);
 
+	// Fade out Recipes
+
+
 	// Reveal the ingredients one by one
 	(function showIngredient (i) {          
 		setTimeout(function () {   
-			console.log($(".viz-ingredient-item"));
 			$(".viz-ingredient-item").eq(i).fadeIn(200);
 			if (i < 4) {
 				i++; 
@@ -69,6 +70,10 @@ function populateIngredients(data) {
 	})(0);
 
 
+}
+
+function hideRecipes() {
+	$(".viz-subhead-recipes").hide();
 }
 
 function showRecipes() {
@@ -150,7 +155,9 @@ function getRandomInt(min, max) {
 // THE SNAP SVG BITS
 // =============================================
 var s = Snap(".viz-svg-wrap");
+
 Snap.load("/img/basket.svg", function (basket) {
+// Snap.load("http://www.guswezerek.com/projects/recipe_generator/img/basket.svg", function (basket) {
 
 	var smallLen = 2.5;
 	var bigLen = 5;
