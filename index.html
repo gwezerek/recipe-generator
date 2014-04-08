@@ -24,27 +24,42 @@
 		<div class="viz-container">
 			<!-- BRACKET MOD -->
 			<section class="viz-content-block">
-				<div class="viz-svg-wrap"></div>
-				<h4 class="viz-subhead">Your Mystery Ingredients</h4>
+				<!-- <div class="viz-svg-wrap"></div> -->
+				<header class="viz-generator-header">
+					<img class="viz-basket" src="/img/basket_bw.png" />
+					<h4 class="viz-subhead">Your Ingredients</h4>
+				</header>
+				<p class="viz-copy">Click the basket to generate your own basket of mystery ingredients.</p>
 				<ul class="viz-ingredients">
 				</ul>
-				<h4 class="viz-subhead viz-subhead-recipes">Suggested Recipes</h4>
 			</section>
 
 		</div>
 
 		<!-- Templates for Questions -->
 		<script type="text/template" class="viz-ingredient-template">
-			<li class="viz-ingredient-item">
-				<p class="viz-number"><%= temp_index %></p>
-				<div class="viz-ingredient-info">
-					<div class="viz-ingredient-header">
-						<div class="viz-ingredient-thumb"></div>
-						<h5 class="viz-ingredient-name"><%= ingredient %>&nbsp;<span class="viz-arrow">&#x25bc;</span></h5>
+				<li class="viz-ingredient-item">
+					<div class="viz-ingredient-info">
+						<div class="viz-ingredient-header">
+							<h5 class="viz-ingredient-name"><%= ingredient %></h5>
+							<h6 class="viz-number"><%= temp_index %></h6>
+						</div>
+						<div class="viz-thumb-container">
+							<img class="viz-ingredient-thumb" src="http://lh6.ggpht.com/rJ8M7hA-rb4fqclnvHU02BbiRFtMjmeHeGVZhRaqc8F7uecs-e0RrjUt-HFQatmd5S_uu2wldMr7MyeFpxcAVQ=s230-c" />
+						</div>
+						<p class="viz-ingredient-description"><%= description %> <a href="<%= page_url %>" class="viz-readmore"><a href="<%= page_url %>" class="viz-readmore">Read&nbsp;more&nbsp;&hellip;</a></p>
 					</div>
-					<p class="viz-ingredient-description"><%= description %> <a href="<%= page_url %>" class="viz-readmore">Read&nbsp;more&nbsp;&hellip;</a></p>
-				</div>
-			</li>
+					<ul class="viz-recipes">
+						<li class="viz-recipes-item">
+							<h7 class="viz-recipe-overline">Food.com</h7>
+							<a href="#0" class="viz-recipe-title">Yuca with Yogurt Mojo</a>
+						</li>
+						<li class="viz-recipes-item">
+							<a class="viz-recipe-overline">Simply Gluten Free</a>
+							<a href="#0" class="viz-recipe-title">Gluten Free Yuca Breads with Spicy Sugar Free Mango Marmalade</a>
+						</li>
+					</ul>
+				</li>
 		</script>
 
 		<script type="text/javascript" src="js/quiz.js"></script>

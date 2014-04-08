@@ -55,11 +55,7 @@
 	line-height: 140%;
 }
 
-.viz-copy {
-	color: $dark-gray;
-	font-weight: 300;
-	line-height: 140%;
-}
+
 
 .viz-byline {
 	letter-spacing: .5px;
@@ -100,27 +96,43 @@
 
 
 
-// Ingredients
-.viz-button {
-	display: block;
-	margin-bottom: 10px;
+
+
+// INGREDIENTS
+///////////////////////////////////////////////
+
+.viz-generator-header {
+	position: relative;
+	margin: 20px 0 10px;
+	height: 70px;
+}
+
+.viz-basket {
+	@include absolute(n 10px 7px n);
+	z-index: 1;
+	width: 80px;
+	cursor: pointer;
 }
 
 .viz-subhead {
-	margin: 0 0 20px;
+	@include absolute(n 0 0 0);
+	margin: 0;
 	padding: 7px 10px;
 	background: black;
 	color: white;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 500;
-	font-size: 24px;
+	font-size: 22px;
 	font-family: $condensed;
 	-webkit-font-smoothing: antialiased;
 }
 
-.viz-subhead-recipes {
-	display: none;
+.viz-copy {
+	margin: 0 0 20px;
+	color: $txt-black;
+	line-height: 140%;
+	font-size: 14px;
 }
 
 .viz-ingredients {
@@ -129,93 +141,96 @@
 }
 
 .viz-ingredient-item {
-	@include pie-clearfix;
 	display: none;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 	list-style-type: none;
 }
 
 .viz-number {
-	float: left;
+	float: right;
 	margin: 0;
-	padding-right: 11px;
-	width: 35px;
-	background-image: url('http://www.guswezerek.com/projects/recipe_generator/img/number_bground.png');
-	background-size: auto 40px;
-	color: white;
-	text-align: center;
-	font-weight: 500;
-	font-size: 15px;
-	font-family: $condensed;
-	line-height: 40px;
-	-webkit-font-smoothing: antialiased;
+	padding: 0 15px;
+	border-left: 1px solid $txt-black;
+	font-size: 18px;
+	font-family: $slab;
 }
 
 .viz-ingredient-header {
 	margin-bottom: 10px;
-	cursor: pointer;
-	display: table;
-	height: 40px;
+	padding-bottom: 5px;
+	width: 100%;
+	border-bottom: 2px solid $txt-black;
 }
 
-.viz-ingredient-active {
-	.viz-arrow {
-
-	}
-}
-
-.viz-ingredient-info {
-	margin-left: 25px;
+.viz-thumb-container {
+	overflow: hidden;
+	margin-bottom: 15px;
+	width: 100%;
+	height: 175px;
 }
 
 .viz-ingredient-thumb {
-	width: 40px;
-	height: 40px;
-	border: 2px solid $txt-black;
-	background-image: url("http://upload.wikimedia.org/wikipedia/commons/7/7f/Citrus_australasica_green_fruit1.JPG");
-	background-size: auto 40px;
+	width: 100%;
 }
 
 .viz-ingredient-name {
-	vertical-align: middle;
-	padding: 0 0 0 5px;
-	font-weight: 600;
-	line-height: 90%;
-	font-size: 18px;
-	font-family: $slab;	
-	display: table-cell;
-}
-
-.viz-arrow {
-	margin-left: -1px;
-	color: $txt-black;
-	font-size: 13px;
+	display: inline-block;	
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 500;
+	font-size: 22px;
+	font-family: $condensed;
 }
 
 .viz-ingredient-description {
-	display: none;
-	margin: 0;
-	margin: 0 0 0 -25px;
-	color: $dark-gray;
+	margin: 0 0 10px;
 	font-size: 14px;
 	line-height: 140%;
-	@media (min-width: $small) {
-		margin: 0 0 0 10px;
-	}
 }
 
 .viz-readmore {
 	@include trans(0.2s, color, ease-in-out);
-	color: $dark-gray;
+	color: $med-gray;
 	text-decoration: none;
 	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 400;
 	font-size: 12px;
+	font-family: $slab;
 	&:hover {
-		color: $med-gray;
+		color: $dark-gray;
 	}
 }
 
+.viz-recipes {
+	padding: 0;
+}
 
+.viz-recipes-item {
+	margin: 0;
+	padding: 10px 0;
+	border-top: 1px solid $txt-black;
+	list-style-type: none;
+}
+
+.viz-recipe-overline {
+	display: block;
+	margin-bottom: 3px;
+	color: $med-gray;
+	text-transform: uppercase;
+	letter-spacing: .75px;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: $slab;
+}
+
+.viz-recipe-title {
+	display: block;
+	color: $txt-black;
+	text-decoration: none;
+	font-size: 14px;
+}
 
 
 

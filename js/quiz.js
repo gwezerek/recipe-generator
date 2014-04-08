@@ -85,66 +85,70 @@ function getRandos(data) {
 
 	for (var i = 0; i < 4; i++) {
 		var randomInt = getRandomInt(0, data.length);
-		DATA[randomInt]["temp_index"] = i +1;
-		ingredients.push(DATA[randomInt]);
+		var ingredient = DATA[randomInt];
+		ingredient["temp_index"] = i +1;
+		fillJSON(ingredient["ingredient"]);
+		ingredients.push(ingredient);
 	};
 
 	return ingredients;
 }
+
+function fillJSON(ingredient) {
+
+	var url = "http://api.yummly.com/v1/api/recipes?_app_id=d4056344&_app_key=cf30fed394ef2013d82d03179ca4f961&q=" + ingredient;
+
+	$.ajax({
+	    type: 'GET',
+	    url: url,
+	    dataType: 'JSONP',
+	    jsonp: 'callback',
+	    success: function(json) {
+	    	console.log("success");
+	    	console.log(ingredient);
+	    	console.log(json);
+	    },
+	    error: function(e) {
+	    	console.log("fail");
+	    	console.log(ingredient);
+	    }
+	});
+
+	// function myFunc(data) {
+	// 	console.log(data);
+	// }
+
+}
+
+
 
 
 
 
 // HANDLERS
 // =============================================
-$(".viz-svg-wrap").on("click", "svg", function() {
+$(".viz-basket").on("click", function() {
 	populateIngredients(DATA);
 });
 
-$(".viz-ingredients").on("click", ".viz-ingredient-header", function() {
-	var $this = $(this);
-	var arrow = $this.find(".viz-arrow");
+// $(".viz-ingredients").on("click", ".viz-ingredient-header", function() {
+// 	var $this = $(this);
+// 	var arrow = $this.find(".viz-arrow");
 
-	$this.next(".viz-ingredient-description").slideToggle(300);
-	$this.toggleClass("viz-ingredient-active");
+// 	$this.next(".viz-ingredient-description").slideToggle(300);
+// 	$this.toggleClass("viz-ingredient-active");
 
-	if ($this.hasClass("viz-ingredient-active")) {
-		arrow.html("&#x25B2;");
-	} else {
-		arrow.html("&#x25bc;");
-	}
-});
+// 	if ($this.hasClass("viz-ingredient-active")) {
+// 		arrow.html("&#x25B2;");
+// 	} else {
+// 		arrow.html("&#x25bc;");
+// 	}
+// });
 
 
 
-// HELPERS
+// GENERAL HELPERS
 // =============================================
-
-// SVG godesend extension methods
-
-d3.selection.prototype.moveToFront = function() {
-	return this.each(function() {
-		this.parentNode.appendChild(this);
-	});
-};
-
-SVGElement.prototype.hasClass = function(className) {
-	return new RegExp('(\\s|^)' + className + '(\\s|$)').test(this.getAttribute("class"));
-};
-
-SVGElement.prototype.addClass = function(className) {
-	if (!this.hasClass(className)) {
-		this.setAttribute("class", this.getAttribute("class") + " " + className);
-	}
-};
-
-SVGElement.prototype.removeClass = function(className) {
-	var removedClass = this.getAttribute("class").replace(new RegExp("(\\s|^)" + className + "(\\s|$)", "g"), "$2");
-	if (this.hasClass(className)) {
-		this.setAttribute("class", removedClass);
-	}
-};
-
 
 // Returns a random integer between min and max
 function getRandomInt(min, max) {
@@ -152,49 +156,3 @@ function getRandomInt(min, max) {
 }
 
 
-// THE SNAP SVG BITS
-// =============================================
-var s = Snap(".viz-svg-wrap");
-
-Snap.load("/img/basket.svg", function (basket) {
-// Snap.load("http://www.guswezerek.com/projects/recipe_generator/img/basket.svg", function (basket) {
-
-	var smallLen = 2.5;
-	var bigLen = 5;
-	var duration = bigLen * 7500000;
-
-	var smallRays = basket.selectAll(".viz-small-rays").attr({
-		"stroke-dasharray": smallLen + " " + smallLen*1.4,
-		"stroke-dashoffset": "0"
-	});
-
-	var bigRays = basket.selectAll(".viz-big-rays").attr({
-		"stroke-dasharray": bigLen + " " + bigLen*1.4,
-		"stroke-dashoffset": "0"
-	});
-
-	function animateRays() {
-		raysIn(smallRays, smallLen);
-		raysIn(bigRays, bigLen);
-	}
-
-	function raysIn(raysGroup, length) {
-		raysGroup.forEach(function(el,i) {
-			el.animate({"stroke-dashoffset": length * 100000}, duration);	
-		});
-	}
-
-	// Animate dose rays
-	// animateRays();
-
-	$(".viz-button").on("click", function() {
-		// animateRays();
-	});
-
-	// Append the SVG
-	s.append(basket);
-
-});
-
-
-// D3 HELPERS

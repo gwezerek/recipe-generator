@@ -81,30 +81,23 @@
   line-height: 140%;
 }
 
-/* line 58, ../sass/partials/_base.scss */
-.viz-copy {
-  color: #66635d;
-  font-weight: 300;
-  line-height: 140%;
-}
-
-/* line 64, ../sass/partials/_base.scss */
+/* line 60, ../sass/partials/_base.scss */
 .viz-byline {
   letter-spacing: .5px;
   line-height: 90%;
 }
 
-/* line 69, ../sass/partials/_base.scss */
+/* line 65, ../sass/partials/_base.scss */
 .viz-content-block {
   margin: 0 0 40px;
 }
 
-/* line 73, ../sass/partials/_base.scss */
+/* line 69, ../sass/partials/_base.scss */
 .viz-content-header {
   margin: 0 0 30px;
 }
 
-/* line 77, ../sass/partials/_base.scss */
+/* line 73, ../sass/partials/_base.scss */
 .viz-overline-wrapper {
   position: relative;
   margin: 0 0 5px;
@@ -112,7 +105,7 @@
   border-bottom: 2px solid #33312e;
 }
 
-/* line 84, ../sass/partials/_base.scss */
+/* line 80, ../sass/partials/_base.scss */
 .viz-subhed {
   margin: 0 0 10px;
   padding-bottom: 3px;
@@ -121,12 +114,12 @@
   font-size: 13px;
 }
 
-/* line 92, ../sass/partials/_base.scss */
+/* line 88, ../sass/partials/_base.scss */
 .viz-subhed-select {
   padding-bottom: 7px;
 }
 
-/* line 96, ../sass/partials/_base.scss */
+/* line 92, ../sass/partials/_base.scss */
 .viz-header-wrapper {
   *zoom: 1;
   position: relative;
@@ -139,140 +132,163 @@
 }
 
 /* line 104, ../sass/partials/_base.scss */
-.viz-button {
-  display: block;
-  margin-bottom: 10px;
+.viz-generator-header {
+  position: relative;
+  margin: 20px 0 10px;
+  height: 70px;
 }
 
-/* line 109, ../sass/partials/_base.scss */
+/* line 110, ../sass/partials/_base.scss */
+.viz-basket {
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  z-index: 1;
+  width: 80px;
+  cursor: pointer;
+}
+
+/* line 117, ../sass/partials/_base.scss */
 .viz-subhead {
-  margin: 0 0 20px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
   padding: 7px 10px;
   background: black;
   color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 22px;
   font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 122, ../sass/partials/_base.scss */
-.viz-subhead-recipes {
-  display: none;
+/* line 131, ../sass/partials/_base.scss */
+.viz-copy {
+  margin: 0 0 20px;
+  color: #33312e;
+  line-height: 140%;
+  font-size: 14px;
 }
 
-/* line 126, ../sass/partials/_base.scss */
+/* line 138, ../sass/partials/_base.scss */
 .viz-ingredients {
   margin: 0 0 40px;
   padding: 0;
 }
 
-/* line 131, ../sass/partials/_base.scss */
+/* line 143, ../sass/partials/_base.scss */
 .viz-ingredient-item {
-  *zoom: 1;
   display: none;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   list-style-type: none;
 }
-/* line 38, ../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.viz-ingredient-item:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
-/* line 138, ../sass/partials/_base.scss */
+/* line 149, ../sass/partials/_base.scss */
 .viz-number {
-  float: left;
+  float: right;
   margin: 0;
-  padding-right: 11px;
-  width: 35px;
-  background-image: url("http://www.guswezerek.com/projects/recipe_generator/img/number_bground.png");
-  background-size: auto 40px;
-  color: white;
-  text-align: center;
-  font-weight: 500;
-  font-size: 15px;
-  font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
-  line-height: 40px;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* line 154, ../sass/partials/_base.scss */
-.viz-ingredient-header {
-  margin-bottom: 10px;
-  cursor: pointer;
-  display: table;
-  height: 40px;
-}
-
-/* line 167, ../sass/partials/_base.scss */
-.viz-ingredient-info {
-  margin-left: 25px;
-}
-
-/* line 171, ../sass/partials/_base.scss */
-.viz-ingredient-thumb {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #33312e;
-  background-image: url("http://upload.wikimedia.org/wikipedia/commons/7/7f/Citrus_australasica_green_fruit1.JPG");
-  background-size: auto 40px;
-}
-
-/* line 179, ../sass/partials/_base.scss */
-.viz-ingredient-name {
-  vertical-align: middle;
-  padding: 0 0 0 5px;
-  font-weight: 600;
-  line-height: 90%;
+  padding: 0 15px;
+  border-left: 1px solid #33312e;
   font-size: 18px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
-  display: table-cell;
 }
 
-/* line 189, ../sass/partials/_base.scss */
-.viz-arrow {
-  margin-left: -1px;
-  color: #33312e;
-  font-size: 13px;
+/* line 158, ../sass/partials/_base.scss */
+.viz-ingredient-header {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  width: 100%;
+  border-bottom: 2px solid #33312e;
 }
 
-/* line 195, ../sass/partials/_base.scss */
-.viz-ingredient-description {
-  display: none;
+/* line 165, ../sass/partials/_base.scss */
+.viz-thumb-container {
+  overflow: hidden;
+  margin-bottom: 15px;
+  width: 100%;
+  height: 175px;
+}
+
+/* line 172, ../sass/partials/_base.scss */
+.viz-ingredient-thumb {
+  width: 100%;
+}
+
+/* line 176, ../sass/partials/_base.scss */
+.viz-ingredient-name {
+  display: inline-block;
   margin: 0;
-  margin: 0 0 0 -25px;
-  color: #66635d;
+  text-transform: uppercase;
+  letter-spacing: .75px;
+  font-weight: 500;
+  font-size: 22px;
+  font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
+}
+
+/* line 186, ../sass/partials/_base.scss */
+.viz-ingredient-description {
+  margin: 0 0 10px;
   font-size: 14px;
   line-height: 140%;
 }
-@media (min-width: 620px) {
-  /* line 195, ../sass/partials/_base.scss */
-  .viz-ingredient-description {
-    margin: 0 0 0 10px;
-  }
-}
 
-/* line 207, ../sass/partials/_base.scss */
+/* line 192, ../sass/partials/_base.scss */
 .viz-readmore {
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
-  color: #66635d;
+  color: #99948a;
   text-decoration: none;
   text-transform: uppercase;
+  letter-spacing: .75px;
+  font-weight: 400;
   font-size: 12px;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
-/* line 213, ../sass/partials/_base.scss */
+/* line 201, ../sass/partials/_base.scss */
 .viz-readmore:hover {
-  color: #99948a;
+  color: #66635d;
 }
 
-/* line 224, ../sass/partials/_base.scss */
+/* line 206, ../sass/partials/_base.scss */
+.viz-recipes {
+  padding: 0;
+}
+
+/* line 210, ../sass/partials/_base.scss */
+.viz-recipes-item {
+  margin: 0;
+  padding: 10px 0;
+  border-top: 1px solid #33312e;
+  list-style-type: none;
+}
+
+/* line 217, ../sass/partials/_base.scss */
+.viz-recipe-overline {
+  display: block;
+  margin-bottom: 3px;
+  color: #99948a;
+  text-transform: uppercase;
+  letter-spacing: .75px;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+}
+
+/* line 228, ../sass/partials/_base.scss */
+.viz-recipe-title {
+  display: block;
+  color: #33312e;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* line 239, ../sass/partials/_base.scss */
 .viz-svg-wrap {
   margin: 0 auto 30px;
   width: 200px;
