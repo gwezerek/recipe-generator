@@ -25,12 +25,14 @@
 			<!-- BRACKET MOD -->
 			<section class="viz-content-block">
 				<!-- <div class="viz-svg-wrap"></div> -->
-				<header class="viz-generator-header">
-					<img class="viz-basket" src="/img/basket_bw.png" />
+				<header class="viz-generator-header viz-header-start">
+					<img class="viz-basket viz-basket-start" src="/img/basket_bw.png" />
 					<h4 class="viz-subhead">Your Ingredients</h4>
 				</header>
-				<p class="viz-copy">Click the basket icon above to generate your own selection of mystery ingredients.</p>
-				<ul class="viz-ingredients">
+				<p class="viz-copy viz-copy-start">Click the basket icon to generate your own mystery ingredient&nbsp;challenge.</p>
+				<ul class="viz-ingredients viz-ingredients-col-1">
+				</ul>
+				<ul class="viz-ingredients viz-ingredients-col-2">
 				</ul>
 			</section>
 
@@ -45,19 +47,30 @@
 							<h6 class="viz-number"><%= temp_index %></h6>
 						</div>
 						<p class="viz-ingredient-description"><%= description %> <a href="<%= page_url %>" class="viz-readmore"><a href="<%= page_url %>" class="viz-readmore">Read&nbsp;more&nbsp;&hellip;</a></p>
-						<div class="viz-thumb-container">
-							<img class="viz-ingredient-thumb" src="<%= image_url %>" />
-						</div>
+						<% if (typeof(image_url) != "undefined") { %>
+							<div class="viz-thumb-container">
+								<img class="viz-ingredient-thumb" src="<%= image_url %>" />
+							</div>
+						<% } else { %>
+							<div class="viz-thumb-container">
+								<img class="viz-ingredient-thumb" src="/img/platter.png" />
+							</div>
+						<% } %>
+
 					</div>
 					<ul class="viz-recipes">
-						<li class="viz-recipes-item">
-							<h7 class="viz-recipe-overline"><%= recipe1_source %></h7>
-							<a href="<%= recipe1_url %>" class="viz-recipe-title"><%= recipe1_name %></a>
-						</li>
-						<li class="viz-recipes-item">
-							<a class="viz-recipe-overline"><%= recipe2_source %></a>
-							<a href="<%= recipe2_url %>" class="viz-recipe-title"><%= recipe2_name %></a>
-						</li>
+						<% if (typeof(recipe1_source) != "undefined") { %>
+							<li class="viz-recipes-item">
+								<h7 class="viz-recipe-overline"><%= recipe1_source %></h7>
+								<a href="<%= recipe1_url %>" class="viz-recipe-title"><%= recipe1_name %></a>
+							</li>
+						<% } %>
+						<% if (typeof(recipe2_source) != "undefined") { %>
+							<li class="viz-recipes-item">
+								<a class="viz-recipe-overline"><%= recipe2_source %></a>
+								<a href="<%= recipe2_url %>" class="viz-recipe-title"><%= recipe2_name %></a>
+							</li>
+						<% } %>
 					</ul>
 				</li>
 		</script>

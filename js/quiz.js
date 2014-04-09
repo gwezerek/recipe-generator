@@ -2,8 +2,10 @@
 
 // SETUP VARIABLES
 // =============================================
-var spreadsheetURL = "/ingredients_pass_2.csv";
-// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients_pass_2.csv";
+var spreadsheetURL = "/ingredients_finalEdit.csv";
+// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients_finalEdit.csv";
+var appID = "d4056344";
+var appKey = "cf30fed394ef2013d82d03179ca4f961";
 
 // For template
 var vizEven = false;
@@ -45,9 +47,9 @@ function getIngredients(data) {
 
 function fillJSON(ingredient, ingredients) {
 
-	var ingredientName = ingredient["ingredient"];
+	var ingredientName = ingredient["search_title"];
 
-	var url = "http://api.yummly.com/v1/api/recipes?_app_id=d4056344&_app_key=cf30fed394ef2013d82d03179ca4f961&q=" + ingredientName + "&requirePictures=true";
+	var url = "http://api.yummly.com/v1/api/recipes?_app_id=" + appID + "&_app_key=" + appKey + "&q=" + ingredientName + "&requirePictures=true";
 
 	$.ajax({
 	    type: 'GET',
@@ -56,64 +58,91 @@ function fillJSON(ingredient, ingredients) {
 	    jsonp: 'callback',
 	    success: function(json) {
 	    	var matches = json["matches"];
-	    	if (matches.length > 0) {
-	    		console.log(matches);
-		    	getRecipe1(matches, ingredient, ingredients);
+
+	    	if (matches.length > 1) {
+		    	$.when(
+
+		    		$.ajax({
+					    type: 'GET',
+					    url: "http://api.yummly.com/v1/api/recipe/" + matches[0]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
+					    dataType: 'JSONP',
+					    jsonp: 'callback',
+					    success: function(recipe) {
+					    	ingredient["image_url"] = recipe["images"][0]["hostedLargeUrl"];
+					    	ingredient["recipe1_name"] = recipe["name"];
+					    	ingredient["recipe1_source"] = recipe["source"]["sourceDisplayName"];
+					    	ingredient["recipe1_url"] = recipe["source"]["sourceRecipeUrl"];				    	
+					    }
+					}),
+
+					$.ajax({
+					    type: 'GET',
+					    url: "http://api.yummly.com/v1/api/recipe/" + matches[1]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
+					    dataType: 'JSONP',
+					    jsonp: 'callback',
+					    success: function(recipe) {
+					    	ingredient["recipe2_name"] = recipe["name"];
+					    	ingredient["recipe2_source"] = recipe["source"]["sourceDisplayName"];
+					    	ingredient["recipe2_url"] = recipe["source"]["sourceRecipeUrl"];
+					    }
+					})
+
+	    		).then(function() {
+
+			    	pushUpdatedIngredient(ingredients, ingredient);
+
+					if (ingredients.length === 4) {
+						populateIngredients(ingredients);
+					}
+
+				});
+
+	    	} else if (matches.length > 0) {
+		    	$.when(
+
+		    		$.ajax({
+					    type: 'GET',
+					    url: "http://api.yummly.com/v1/api/recipe/" + matches[0]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
+					    dataType: 'JSONP',
+					    jsonp: 'callback',
+					    success: function(recipe) {
+					    	ingredient["image_url"] = recipe["images"][0]["hostedLargeUrl"];
+					    	ingredient["recipe1_name"] = recipe["name"];
+					    	ingredient["recipe1_source"] = recipe["source"]["sourceDisplayName"];
+					    	ingredient["recipe1_url"] = recipe["source"]["sourceRecipeUrl"];				    	
+					    }
+					})
+
+	    		).then(function() {
+
+			    	pushUpdatedIngredient(ingredients, ingredient);
+
+					if (ingredients.length === 4) {
+						populateIngredients(ingredients);
+					}
+
+				});
+	    	} else {
+
+	    		pushUpdatedIngredient(ingredients, ingredient);
+
+				if (ingredients.length === 4) {
+					populateIngredients(ingredients);
+				}
 	    	}
 	    }
 	});
 }
 
-function getRecipe1(matches, ingredient, ingredients){
-
-	var url = "http://api.yummly.com/v1/api/recipe/" + matches[0]["id"] +"?_app_id=d4056344&_app_key=cf30fed394ef2013d82d03179ca4f961";
-
-	var promise = $.ajax({
-	    type: 'GET',
-	    url: url,
-	    dataType: 'JSONP',
-	    jsonp: 'callback',
-	    success: function(recipe) {
-	    	ingredient["image_url"] = recipe["images"][0]["hostedLargeUrl"];
-	    	ingredient["recipe1_name"] = recipe["name"];
-	    	ingredient["recipe1_source"] = recipe["source"]["sourceDisplayName"];
-	    	ingredient["recipe1_url"] = recipe["source"]["sourceRecipeUrl"];
-	    	if (matches.length > 1) {
-		    	getRecipe2(matches[1]["id"], ingredient, ingredients)
-		    }
-	    }
-	});
-}
-
-function getRecipe2(id, ingredient, ingredients){
-
-	var url = "http://api.yummly.com/v1/api/recipe/" + id +"?_app_id=d4056344&_app_key=cf30fed394ef2013d82d03179ca4f961";
-
-	var promise = $.ajax({
-	    type: 'GET',
-	    url: url,
-	    dataType: 'JSONP',
-	    jsonp: 'callback',
-	    success: function(recipe) {
-	    	ingredient["recipe2_name"] = recipe["name"];
-	    	ingredient["recipe2_source"] = recipe["source"]["sourceDisplayName"];
-	    	ingredient["recipe2_url"] = recipe["source"]["sourceRecipeUrl"];
-
-	    	pushUpdatedIngredient(ingredients, ingredient);
-	    }
-	});
-
-	promise.done(function(){
-		if (ingredients.length === 4) {
-			populateIngredients(ingredients);
-		}
-	});
+function pushUpdatedIngredient(ingredientsArray, ingredient) {
+	ingredientsArray.push(ingredient);
 }
 
 function populateIngredients(selectedIngredients) {
 
 	var myObj = {};
-	var toAppendString = "";
+	var toAppendString1 = "";
+	var toAppendString2 = "";
 
 	// Create objects that underscore likes
 	myObj["ingredients"] = selectedIngredients;
@@ -123,14 +152,19 @@ function populateIngredients(selectedIngredients) {
 	for (i = 0; i < selectedIngredients.ingredients.length; i++) {
 		var selected = selectedIngredients.ingredients[i];
 		selected["temp_index"] = i +1;
-		toAppendString += ingredientsTemplate(selected);
+		if (i < 2) {
+			toAppendString1 += ingredientsTemplate(selected);
+		} else {
+			toAppendString2 += ingredientsTemplate(selected);
+		}
 	}
 
 	// Fade out current list 
 	hideRecipes();
 
-	// Append the list
-	$(".viz-ingredients").html(toAppendString);
+	// Append the lists
+	$(".viz-ingredients-col-1").html(toAppendString1);
+	$(".viz-ingredients-col-2").html(toAppendString2);
 
 	// Reveal the ingredients one by one
 	(function showIngredient (i) {          
@@ -154,9 +188,7 @@ function showRecipes() {
 	$(".viz-subhead-recipes").fadeIn(200);
 }
 
-function pushUpdatedIngredient(ingredientsArray, ingredient) {
-	ingredientsArray.push(ingredient);
-}
+
 
 
 
@@ -168,22 +200,10 @@ function pushUpdatedIngredient(ingredientsArray, ingredient) {
 // HANDLERS
 // =============================================
 $(".viz-basket").on("click", function() {
+	$(".viz-generator-header").removeClass("viz-header-start");
+	$(".viz-copy").removeClass("viz-copy-start");
 	getIngredients(DATA);
 });
-
-// $(".viz-ingredients").on("click", ".viz-ingredient-header", function() {
-// 	var $this = $(this);
-// 	var arrow = $this.find(".viz-arrow");
-
-// 	$this.next(".viz-ingredient-description").slideToggle(300);
-// 	$this.toggleClass("viz-ingredient-active");
-
-// 	if ($this.hasClass("viz-ingredient-active")) {
-// 		arrow.html("&#x25B2;");
-// 	} else {
-// 		arrow.html("&#x25bc;");
-// 	}
-// });
 
 
 

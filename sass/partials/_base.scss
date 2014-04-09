@@ -63,6 +63,7 @@
 }
 
 .viz-content-block {
+	@include pie-clearfix;
 	margin: 0 0 40px;
 }
 
@@ -108,65 +109,107 @@
 }
 
 .viz-basket {
-	@include absolute(n 10px 7px n);
+	@include transition(0.2s bottom ease-in-out, 0.2s width ease-in-out);
+	@include absolute(n 15px 9px n);
 	z-index: 1;
 	width: 80px;
 	cursor: pointer;
 }
 
 .viz-subhead {
+	@include trans(0.2s, text-align, ease-in-out);
 	@include absolute(n 0 0 0);
 	margin: 0;
-	padding: 7px 10px;
-	background: black;
+	padding: 5px 10px 7px;
+	background: $txt-black;
 	color: white;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 500;
+	font-weight: 600;
 	font-size: 22px;
-	font-family: $condensed;
+	font-family: $slab;
 	-webkit-font-smoothing: antialiased;
 }
 
+.viz-header-start {
+	.viz-basket {
+		width: 280px;
+		bottom: -325px;
+		right: 0;
+		left: 0;
+		margin: auto auto;
+	}
+	.viz-subhead {
+		text-align: center;
+	}
+}
+
 .viz-copy {
-	margin: 0 0 20px;
+	@include trans(0.2s, text-align, ease-in-out);
+	margin: 0 0 20px 10px;
 	color: $txt-black;
 	line-height: 140%;
-	font-size: 14px;
+	font-size: 15px;
+}
+
+.viz-copy-start {
+	margin-left: 0;
+	text-align: center;
 }
 
 .viz-ingredients {
 	margin: 0 0 40px;
 	padding: 0;
+	@media (min-width: $small) {
+		width: 48%;
+	}
+}
+
+.viz-ingredients-col-1 {
+	@media (min-width: $small) {
+		float: left;
+	}
+}
+
+.viz-ingredients-col-2 {
+	@media (min-width: $small) {
+		float: right;
+	}
 }
 
 .viz-ingredient-item {
 	display: none;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	list-style-type: none;
+	padding: 15px;
+	border: 1px solid $txt-black;
 }
 
 .viz-number {
-	float: right;
+	@include absolute(n 0 10px n);
 	margin: 0;
-	padding: 0 15px;
-	border-left: 1px solid $txt-black;
-	font-size: 18px;
+	padding-top: 2px;
+	width: 16px;
+	height: 16px;
+	background: $txt-black;
+	color: white;
+	text-align: center;
+	font-weight: 500;
+	font-size: 12px;
 	font-family: $slab;
 }
 
 .viz-ingredient-header {
 	margin-bottom: 10px;
-	padding-bottom: 5px;
+	padding-bottom: 6px;
 	width: 100%;
 	border-bottom: 2px solid $txt-black;
+	position: relative;
 }
 
 .viz-thumb-container {
 	overflow: hidden;
-	margin-bottom: 15px;
+	margin: 10px 0 0;
 	width: 100%;
-	height: 175px;
+	max-height: 260px;
 }
 
 .viz-ingredient-thumb {
@@ -177,16 +220,15 @@
 
 .viz-ingredient-name {
 	display: inline-block;	
-	margin: 0;
-	text-transform: uppercase;
-	letter-spacing: .75px;
-	font-weight: 500;
-	font-size: 22px;
-	font-family: $condensed;
+	margin: 0 25px 0 0;
+	font-weight: 600;
+	font-size: 20px;
+	font-family: $slab;
+	line-height: 100%;
 }
 
 .viz-ingredient-description {
-	margin: 0 0 10px;
+	margin: 0;
 	font-size: 14px;
 	line-height: 140%;
 }
@@ -215,8 +257,12 @@
 	border-top: 1px solid $txt-black;
 	list-style-type: none;
 	&:nth-of-type(1) {
+		margin-top: 15px;
 		border-top: none;
 		padding-top: 0;
+	}
+	&:last-of-type {
+		padding-bottom: 5px;
 	}
 }
 

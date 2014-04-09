@@ -325,7 +325,7 @@
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
   line-height: 90%;
 }
-@media (min-width: 620px) {
+@media (min-width: 500px) {
   /* line 39, ../sass/partials/_base.scss */
   .viz-title {
     font-size: 42px;
@@ -348,15 +348,22 @@
 
 /* line 65, ../sass/partials/_base.scss */
 .viz-content-block {
+  *zoom: 1;
   margin: 0 0 40px;
 }
+/* line 38, ../../../../../../Applications/LiveReload.app/Contents/Resources/SASS.lrplugin/lib/compass/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.viz-content-block:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-/* line 69, ../sass/partials/_base.scss */
+/* line 70, ../sass/partials/_base.scss */
 .viz-content-header {
   margin: 0 0 30px;
 }
 
-/* line 73, ../sass/partials/_base.scss */
+/* line 74, ../sass/partials/_base.scss */
 .viz-overline-wrapper {
   position: relative;
   margin: 0 0 5px;
@@ -364,7 +371,7 @@
   border-bottom: 2px solid #33312e;
 }
 
-/* line 80, ../sass/partials/_base.scss */
+/* line 81, ../sass/partials/_base.scss */
 .viz-subhed {
   margin: 0 0 10px;
   padding-bottom: 3px;
@@ -373,12 +380,12 @@
   font-size: 13px;
 }
 
-/* line 88, ../sass/partials/_base.scss */
+/* line 89, ../sass/partials/_base.scss */
 .viz-subhed-select {
   padding-bottom: 7px;
 }
 
-/* line 92, ../sass/partials/_base.scss */
+/* line 93, ../sass/partials/_base.scss */
 .viz-header-wrapper {
   *zoom: 1;
   position: relative;
@@ -390,114 +397,172 @@
   clear: both;
 }
 
-/* line 104, ../sass/partials/_base.scss */
+/* line 105, ../sass/partials/_base.scss */
 .viz-generator-header {
   position: relative;
   margin: 20px 0 10px;
   height: 70px;
 }
 
-/* line 110, ../sass/partials/_base.scss */
+/* line 111, ../sass/partials/_base.scss */
 .viz-basket {
+  -webkit-transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
+  -moz-transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
+  -o-transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
+  transition: 0.2s bottom ease-in-out, 0.2s width ease-in-out;
   position: absolute;
-  right: 10px;
-  bottom: 7px;
+  right: 15px;
+  bottom: 9px;
   z-index: 1;
   width: 80px;
   cursor: pointer;
 }
 
-/* line 117, ../sass/partials/_base.scss */
+/* line 119, ../sass/partials/_base.scss */
 .viz-subhead {
+  -webkit-transition: text-align 0.2s ease-in-out;
+  -moz-transition: text-align 0.2s ease-in-out;
+  -o-transition: text-align 0.2s ease-in-out;
+  transition: text-align 0.2s ease-in-out;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   margin: 0;
-  padding: 7px 10px;
-  background: black;
+  padding: 5px 10px 7px;
+  background: #33312e;
   color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 22px;
-  font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 131, ../sass/partials/_base.scss */
-.viz-copy {
-  margin: 0 0 20px;
-  color: #33312e;
-  line-height: 140%;
-  font-size: 14px;
+/* line 133, ../sass/partials/_base.scss */
+.viz-header-start .viz-basket {
+  width: 280px;
+  bottom: -325px;
+  right: 0;
+  left: 0;
+  margin: auto auto;
+}
+/* line 140, ../sass/partials/_base.scss */
+.viz-header-start .viz-subhead {
+  text-align: center;
 }
 
-/* line 138, ../sass/partials/_base.scss */
+/* line 145, ../sass/partials/_base.scss */
+.viz-copy {
+  -webkit-transition: text-align 0.2s ease-in-out;
+  -moz-transition: text-align 0.2s ease-in-out;
+  -o-transition: text-align 0.2s ease-in-out;
+  transition: text-align 0.2s ease-in-out;
+  margin: 0 0 20px 10px;
+  color: #33312e;
+  line-height: 140%;
+  font-size: 15px;
+}
+
+/* line 153, ../sass/partials/_base.scss */
+.viz-copy-start {
+  margin-left: 0;
+  text-align: center;
+}
+
+/* line 158, ../sass/partials/_base.scss */
 .viz-ingredients {
   margin: 0 0 40px;
   padding: 0;
 }
-
-/* line 143, ../sass/partials/_base.scss */
-.viz-ingredient-item {
-  display: none;
-  margin-bottom: 30px;
-  list-style-type: none;
+@media (min-width: 500px) {
+  /* line 158, ../sass/partials/_base.scss */
+  .viz-ingredients {
+    width: 48%;
+  }
 }
 
-/* line 149, ../sass/partials/_base.scss */
+@media (min-width: 500px) {
+  /* line 166, ../sass/partials/_base.scss */
+  .viz-ingredients-col-1 {
+    float: left;
+  }
+}
+
+@media (min-width: 500px) {
+  /* line 172, ../sass/partials/_base.scss */
+  .viz-ingredients-col-2 {
+    float: right;
+  }
+}
+
+/* line 178, ../sass/partials/_base.scss */
+.viz-ingredient-item {
+  display: none;
+  margin-bottom: 20px;
+  list-style-type: none;
+  padding: 15px;
+  border: 1px solid #33312e;
+}
+
+/* line 186, ../sass/partials/_base.scss */
 .viz-number {
-  float: right;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
   margin: 0;
-  padding: 0 15px;
-  border-left: 1px solid #33312e;
-  font-size: 18px;
+  padding-top: 2px;
+  width: 16px;
+  height: 16px;
+  background: #33312e;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
 
-/* line 158, ../sass/partials/_base.scss */
+/* line 200, ../sass/partials/_base.scss */
 .viz-ingredient-header {
   margin-bottom: 10px;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
   width: 100%;
   border-bottom: 2px solid #33312e;
+  position: relative;
 }
 
-/* line 165, ../sass/partials/_base.scss */
+/* line 208, ../sass/partials/_base.scss */
 .viz-thumb-container {
   overflow: hidden;
-  margin-bottom: 15px;
+  margin: 10px 0 0;
   width: 100%;
-  height: 175px;
+  max-height: 260px;
 }
 
-/* line 172, ../sass/partials/_base.scss */
+/* line 215, ../sass/partials/_base.scss */
 .viz-ingredient-thumb {
   border-top: 1px solid #33312e;
   padding-top: 15px;
   width: 100%;
 }
 
-/* line 178, ../sass/partials/_base.scss */
+/* line 221, ../sass/partials/_base.scss */
 .viz-ingredient-name {
   display: inline-block;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: .75px;
-  font-weight: 500;
-  font-size: 22px;
-  font-family: "FCKaiserCond", Helvetica, Arial, sans-serif;
+  margin: 0 25px 0 0;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
+  line-height: 100%;
 }
 
-/* line 188, ../sass/partials/_base.scss */
+/* line 230, ../sass/partials/_base.scss */
 .viz-ingredient-description {
-  margin: 0 0 10px;
+  margin: 0;
   font-size: 14px;
   line-height: 140%;
 }
 
-/* line 194, ../sass/partials/_base.scss */
+/* line 236, ../sass/partials/_base.scss */
 .viz-readmore {
   -webkit-transition: color 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out;
@@ -511,30 +576,35 @@
   font-size: 12px;
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
-/* line 203, ../sass/partials/_base.scss */
+/* line 245, ../sass/partials/_base.scss */
 .viz-readmore:hover {
   color: #66635d;
 }
 
-/* line 208, ../sass/partials/_base.scss */
+/* line 250, ../sass/partials/_base.scss */
 .viz-recipes {
   padding: 0;
 }
 
-/* line 212, ../sass/partials/_base.scss */
+/* line 254, ../sass/partials/_base.scss */
 .viz-recipes-item {
   margin: 0;
   padding: 10px 0;
   border-top: 1px solid #33312e;
   list-style-type: none;
 }
-/* line 217, ../sass/partials/_base.scss */
+/* line 259, ../sass/partials/_base.scss */
 .viz-recipes-item:nth-of-type(1) {
+  margin-top: 15px;
   border-top: none;
   padding-top: 0;
 }
+/* line 264, ../sass/partials/_base.scss */
+.viz-recipes-item:last-of-type {
+  padding-bottom: 5px;
+}
 
-/* line 223, ../sass/partials/_base.scss */
+/* line 269, ../sass/partials/_base.scss */
 .viz-recipe-overline {
   display: block;
   margin-bottom: 3px;
@@ -546,7 +616,7 @@
   font-family: "FCZizouSlab", Georgia, Times, Times New Roman, serif;
 }
 
-/* line 234, ../sass/partials/_base.scss */
+/* line 280, ../sass/partials/_base.scss */
 .viz-recipe-title {
   display: block;
   color: #33312e;
@@ -554,7 +624,7 @@
   font-size: 14px;
 }
 
-/* line 245, ../sass/partials/_base.scss */
+/* line 291, ../sass/partials/_base.scss */
 .viz-svg-wrap {
   margin: 0 auto 30px;
   width: 200px;
@@ -573,9 +643,9 @@
 body {
   margin: 0 auto;
   padding: 15px 20px;
-  max-width: 620px;
+  max-width: 606px;
 }
-@media (min-width: 620px) {
+@media (min-width: 500px) {
   /* line 29, ../sass/site.scss */
   body {
     padding: 30px 20px;
