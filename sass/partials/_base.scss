@@ -155,8 +155,12 @@
 	text-align: center;
 }
 
+.viz-ingredients-wrapper {
+	@include pie-clearfix;
+}
+
 .viz-ingredients {
-	margin: 0 0 40px;
+	margin: 0 0 10px;
 	padding: 0;
 	@media (min-width: $small) {
 		width: 48%;
@@ -284,6 +288,36 @@
 	font-size: 14px;
 }
 
+.viz-source {
+	display: block;
+	margin: 300px 0 7px;
+	padding-top: 7px;
+	border-top: 1px solid $light-gray;
+	color: $light-gray;
+	letter-spacing: .75px;
+	font-weight: 400;
+	font-size: 12px;
+	font-family: $slab;
+	line-height: 140%;
+}
+
+.viz-source-activated {
+	margin-top: 0px;
+}
+
+.viz-leadin {
+	text-transform: uppercase;
+}
+
+.viz-yummly {
+	@include inline-block;
+	background-image: url('/img/yummly_logo.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin: 4px 2px 0 2px;
+	width: 50px;
+	height: 20px;
+}
 
 
 

@@ -2,8 +2,8 @@
 
 // SETUP VARIABLES
 // =============================================
-var spreadsheetURL = "/ingredients_finalEdit.csv";
-// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients_finalEdit.csv";
+var spreadsheetURL = "/ingredients.tsv";
+// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients.tsv";
 var appID = "d4056344";
 var appKey = "cf30fed394ef2013d82d03179ca4f961";
 
@@ -24,7 +24,7 @@ var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
 // LOAD DAT DATA
 // =============================================
 
-d3.csv(spreadsheetURL, function(error, myData) {
+d3.tsv(spreadsheetURL, function(error, myData) {
 	DATA = myData;
 });
 
@@ -178,6 +178,7 @@ function populateIngredients(selectedIngredients) {
 			}
 		}, 500)
 	})(0);
+
 }
 
 function hideRecipes() {
@@ -185,7 +186,7 @@ function hideRecipes() {
 }
 
 function showRecipes() {
-	$(".viz-subhead-recipes").fadeIn(200);
+	$(".viz-source").addClass("viz-source-activated").fadeIn(200);
 }
 
 
@@ -202,6 +203,7 @@ function showRecipes() {
 $(".viz-basket").on("click", function() {
 	$(".viz-generator-header").removeClass("viz-header-start");
 	$(".viz-copy").removeClass("viz-copy-start");
+	$(".viz-source").fadeOut(200);
 	getIngredients(DATA);
 });
 
