@@ -381,8 +381,8 @@
   display: block;
   margin: 300px 0 7px;
   padding-top: 7px;
-  border-top: 1px solid #ccc6b9;
-  color: #ccc6b9;
+  border-top: 1px solid #99948a;
+  color: #99948a;
   letter-spacing: .75px;
   font-weight: 400;
   font-size: 12px;
@@ -408,15 +408,15 @@
   *vertical-align: auto;
   zoom: 1;
   *display: inline;
-  background-image: url("/img/yummly_logo.png");
+  background-image: url("http://www.guswezerek.com/projects/recipe_generator/img/yummly_logo.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  margin: 4px 2px 0 2px;
+  margin: 4px 2px 0 1px;
   width: 50px;
   height: 20px;
 }
 
-/* line 325, ../sass/partials/_base.scss */
+/* line 326, ../sass/partials/_base.scss */
 .viz-svg-wrap {
   margin: 0 auto 30px;
   width: 200px;

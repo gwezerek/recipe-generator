@@ -2,21 +2,16 @@
 
 // SETUP VARIABLES
 // =============================================
-var spreadsheetURL = "/ingredients.tsv";
-// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients.tsv";
+// var spreadsheetURL = "/ingredients.tsv";
+var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients.tsv";
 var appID = "d4056344";
 var appKey = "cf30fed394ef2013d82d03179ca4f961";
 
+// Need to change to FC address once we have it
+var baseUrl = "http://www.guswezerek.com/projects/recipe_generator/";
+
 // For template
-var vizEven = false;
-var vizQuiz = false;
 var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
-
-
-// SETUP
-// =============================================
-
-
 
 
 
@@ -26,6 +21,12 @@ var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
 
 d3.tsv(spreadsheetURL, function(error, myData) {
 	DATA = myData;
+	var ingredientsStr = decodeURI(window.location.hash).substr(1);
+
+	// if the url has a list of attached ingredients
+	if (ingredientsStr) {
+		getIngredients(DATA, ingredientsStr.split("?"));
+	}
 });
 
 
@@ -34,23 +35,42 @@ d3.tsv(spreadsheetURL, function(error, myData) {
 
 // HELPERS
 // =============================================
-function getIngredients(data) {
+function getIngredients(data, preBakedList) {
+
+	setStage();
 
 	var ingredients = [];
-	
-	for (var i = 0; i < 4; i++) {
-		var randomInt = getRandomInt(0, data.length);
-		var ingredient = DATA[randomInt];
-		fillJSON(ingredient, ingredients);
-	};
+
+	if (preBakedList) {
+
+		// use indices from url
+		for (var i = 0; i < 4; i++) {
+			fillJSON(DATA[preBakedList[i]], ingredients);
+		};	
+
+	} else {
+
+		// get four random ingredients
+		for (var i = 0; i < 4; i++) {
+			var randomInt = getRandomInt(0, data.length);
+			var ingredient = DATA[randomInt];
+			fillJSON(ingredient, ingredients);
+		};	
+
+	}
+
 }
+
 
 function fillJSON(ingredient, ingredients) {
 
+	// Sometimes we search for a modified version of the ingredient to get results
+	// Hence the need for a search_title column in the data
 	var ingredientName = ingredient["search_title"];
 
 	var url = "http://api.yummly.com/v1/api/recipes?_app_id=" + appID + "&_app_key=" + appKey + "&q=" + ingredientName + "&requirePictures=true";
 
+	// Call the Yummly API to get a photo and up to two recipes for the ingredient
 	$.ajax({
 	    type: 'GET',
 	    url: url,
@@ -59,7 +79,8 @@ function fillJSON(ingredient, ingredients) {
 	    success: function(json) {
 	    	var matches = json["matches"];
 
-	    	if (matches.length > 1) {
+	    	// When we have at least two recipe matches for the ingredient
+	    	if (matches.length > 1) {			
 		    	$.when(
 
 		    		$.ajax({
@@ -87,16 +108,20 @@ function fillJSON(ingredient, ingredients) {
 					    }
 					})
 
-	    		).then(function() {
+				// Now that we've loaded the recipe data into the ingredient object
+	    		).then(function() {			
 
+	    			// Push the ingredient into the empty ingredients array
 			    	pushUpdatedIngredient(ingredients, ingredient);
 
+			    	// If the array is full, it's time to reveal our ingredients
 					if (ingredients.length === 4) {
 						populateIngredients(ingredients);
 					}
 
 				});
 
+	    	// When we only have one recipe match for the ingredient
 	    	} else if (matches.length > 0) {
 		    	$.when(
 
@@ -122,6 +147,8 @@ function fillJSON(ingredient, ingredients) {
 					}
 
 				});
+
+			// When we have no recipe matches for the ingredient
 	    	} else {
 
 	    		pushUpdatedIngredient(ingredients, ingredient);
@@ -138,6 +165,8 @@ function pushUpdatedIngredient(ingredientsArray, ingredient) {
 	ingredientsArray.push(ingredient);
 }
 
+// We filled out ingredients with info from the API
+// Now we need to compile and append them to the DOM
 function populateIngredients(selectedIngredients) {
 
 	var myObj = {};
@@ -175,6 +204,7 @@ function populateIngredients(selectedIngredients) {
 				showIngredient(i);
 			} else {
 				showRecipes();
+				changeURL(selectedIngredients);
 			}
 		}, 500)
 	})(0);
@@ -189,6 +219,31 @@ function showRecipes() {
 	$(".viz-source").addClass("viz-source-activated").fadeIn(200);
 }
 
+function changeURL(ingredients) {
+
+	var pathString = "#";
+
+	// Stringify final ingredient list
+	_.each(ingredients.ingredients, function(e, i) {
+		if (i === 0) {
+			pathString += encodeURIComponent(e.original_index);
+		} else {
+			pathString += ("?" + encodeURIComponent(e.original_index));
+		}
+	});
+
+	// Modify history with filled ingredients
+	// So we can skip the API step if we load from scratch
+	history.pushState("state", "title", baseUrl + pathString);
+
+}
+
+function setStage() {
+	$(".viz-generator-header").removeClass("viz-header-start");
+	$(".viz-copy").removeClass("viz-copy-start");
+	$(".viz-source").fadeOut(200);
+}
+
 
 
 
@@ -201,9 +256,6 @@ function showRecipes() {
 // HANDLERS
 // =============================================
 $(".viz-basket").on("click", function() {
-	$(".viz-generator-header").removeClass("viz-header-start");
-	$(".viz-copy").removeClass("viz-copy-start");
-	$(".viz-source").fadeOut(200);
 	getIngredients(DATA);
 });
 

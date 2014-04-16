@@ -292,8 +292,8 @@
 	display: block;
 	margin: 300px 0 7px;
 	padding-top: 7px;
-	border-top: 1px solid $light-gray;
-	color: $light-gray;
+	border-top: 1px solid $med-gray;
+	color: $med-gray;
 	letter-spacing: .75px;
 	font-weight: 400;
 	font-size: 12px;
@@ -311,10 +311,11 @@
 
 .viz-yummly {
 	@include inline-block;
-	background-image: url('/img/yummly_logo.png');
+	// background-image: url('/img/yummly_logo.png');
+	background-image: url('http://www.guswezerek.com/projects/recipe_generator/img/yummly_logo.png');
 	background-size: 100%;
 	background-repeat: no-repeat;
-	margin: 4px 2px 0 2px;
+	margin: 4px 2px 0 1px;
 	width: 50px;
 	height: 20px;
 }
