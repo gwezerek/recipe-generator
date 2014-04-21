@@ -9,6 +9,7 @@ var appKey = "cf30fed394ef2013d82d03179ca4f961";
 
 // Need to change to FC address once we have it
 var baseUrl = "http://www.guswezerek.com/projects/recipe_generator/";
+// var baseUrl = "http://localhost:8000";
 
 // For template
 var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
@@ -21,11 +22,14 @@ var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
 
 d3.tsv(spreadsheetURL, function(error, myData) {
 	DATA = myData;
-	var ingredientsStr = decodeURI(window.location.hash).substr(1);
+	console.log()
+	var ingredientsStr = decodeURI(window.location.search).substr(13).slice(0, -1);
+
+	console.log(ingredientsStr);
 
 	// if the url has a list of attached ingredients
 	if (ingredientsStr) {
-		getIngredients(DATA, ingredientsStr.split("?"));
+		getIngredients(DATA, ingredientsStr.split(","));
 	}
 });
 
@@ -221,14 +225,14 @@ function showRecipes() {
 
 function changeURL(ingredients) {
 
-	var pathString = "#";
+	var pathString = "?ingredients=";
 
 	// Stringify final ingredient list
 	_.each(ingredients.ingredients, function(e, i) {
 		if (i === 0) {
 			pathString += encodeURIComponent(e.original_index);
 		} else {
-			pathString += ("?" + encodeURIComponent(e.original_index));
+			pathString += ("," + encodeURIComponent(e.original_index));
 		}
 	});
 
