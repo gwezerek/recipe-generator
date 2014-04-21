@@ -127,6 +127,7 @@
 	font-size: 22px;
 	font-family: $slab;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .viz-header-start {
@@ -232,6 +233,7 @@
 }
 
 .viz-ingredient-description {
+	color: $txt-black;
 	margin: 0;
 	font-size: 14px;
 	line-height: 140%;
@@ -312,7 +314,8 @@
 .viz-yummly {
 	@include inline-block;
 	// background-image: url('/img/yummly_logo.png');
-	background-image: url('http://www.guswezerek.com/projects/recipe_generator/img/yummly_logo.png');
+	// background-image: url('http://www.guswezerek.com/projects/recipe_generator/img/yummly_logo.png');
+	background-image: url('http://www.fastcodesign.com/asset_files/-/2014/04/21/yummly_logo.png');
 	background-size: 100%;
 	background-repeat: no-repeat;
 	margin: 4px 2px 0 1px;
@@ -322,7 +325,7 @@
 
 
 
-// SVG Animation
+// SVG
 .viz-svg-wrap {
 	margin: 0 auto 30px;
 	width: 200px;

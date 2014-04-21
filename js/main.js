@@ -1,15 +1,19 @@
 /*jshint -W099 */
+/*jslint browser: true, sub: true */
 
 // SETUP VARIABLES
 // =============================================
-// var spreadsheetURL = "/ingredients.tsv";
-var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients.tsv";
+var spreadsheetURL = "/ingredients.tsv";
+// var spreadsheetURL = "http://www.guswezerek.com/projects/recipe_generator/ingredients.tsv";
+// var spreadsheetURL = "http://www.fastcodesign.com/asset_files/-/2014/04/21/ingredients.tsv";
+
 var appID = "d4056344";
 var appKey = "cf30fed394ef2013d82d03179ca4f961";
 
 // Need to change to FC address once we have it
-var baseUrl = "http://www.guswezerek.com/projects/recipe_generator/";
+// var baseUrl = "http://www.guswezerek.com/projects/recipe_generator/";
 // var baseUrl = "http://localhost:8000";
+var baseUrl = window.location.origin + window.location.pathname;
 
 // For template
 var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
@@ -22,10 +26,7 @@ var ingredientsTemplate = _.template( $(".viz-ingredient-template").html() );
 
 d3.tsv(spreadsheetURL, function(error, myData) {
 	DATA = myData;
-	console.log()
 	var ingredientsStr = decodeURI(window.location.search).substr(13).slice(0, -1);
-
-	console.log(ingredientsStr);
 
 	// if the url has a list of attached ingredients
 	if (ingredientsStr) {
@@ -50,7 +51,7 @@ function getIngredients(data, preBakedList) {
 		// use indices from url
 		for (var i = 0; i < 4; i++) {
 			fillJSON(DATA[preBakedList[i]], ingredients);
-		};	
+		}	
 
 	} else {
 
@@ -59,7 +60,7 @@ function getIngredients(data, preBakedList) {
 			var randomInt = getRandomInt(0, data.length);
 			var ingredient = DATA[randomInt];
 			fillJSON(ingredient, ingredients);
-		};	
+		}
 
 	}
 
@@ -70,28 +71,28 @@ function fillJSON(ingredient, ingredients) {
 
 	// Sometimes we search for a modified version of the ingredient to get results
 	// Hence the need for a search_title column in the data
-	var ingredientName = ingredient["search_title"];
+	var ingredientName = ingredient.search_title;
 
 	var url = "http://api.yummly.com/v1/api/recipes?_app_id=" + appID + "&_app_key=" + appKey + "&q=" + ingredientName + "&requirePictures=true";
 
 	// Call the Yummly API to get a photo and up to two recipes for the ingredient
 	$.ajax({
-	    type: 'GET',
+	    type: "GET",
 	    url: url,
-	    dataType: 'JSONP',
-	    jsonp: 'callback',
+	    dataType: "JSONP",
+	    jsonp: "callback",
 	    success: function(json) {
-	    	var matches = json["matches"];
+	    	var matches = json.matches;
 
 	    	// When we have at least two recipe matches for the ingredient
 	    	if (matches.length > 1) {			
 		    	$.when(
 
 		    		$.ajax({
-					    type: 'GET',
+					    type: "GET",
 					    url: "http://api.yummly.com/v1/api/recipe/" + matches[0]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
-					    dataType: 'JSONP',
-					    jsonp: 'callback',
+					    dataType: "JSONP",
+					    jsonp: "callback",
 					    success: function(recipe) {
 					    	ingredient["image_url"] = recipe["images"][0]["hostedLargeUrl"];
 					    	ingredient["recipe1_name"] = recipe["name"];
@@ -101,10 +102,10 @@ function fillJSON(ingredient, ingredients) {
 					}),
 
 					$.ajax({
-					    type: 'GET',
+					    type: "GET",
 					    url: "http://api.yummly.com/v1/api/recipe/" + matches[1]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
-					    dataType: 'JSONP',
-					    jsonp: 'callback',
+					    dataType: "JSONP",
+					    jsonp: "callback",
 					    success: function(recipe) {
 					    	ingredient["recipe2_name"] = recipe["name"];
 					    	ingredient["recipe2_source"] = recipe["source"]["sourceDisplayName"];
@@ -130,10 +131,10 @@ function fillJSON(ingredient, ingredients) {
 		    	$.when(
 
 		    		$.ajax({
-					    type: 'GET',
+					    type: "GET",
 					    url: "http://api.yummly.com/v1/api/recipe/" + matches[0]["id"] +"?_app_id=" + appID + "&_app_key=" + appKey,
-					    dataType: 'JSONP',
-					    jsonp: 'callback',
+					    dataType: "JSONP",
+					    jsonp: "callback",
 					    success: function(recipe) {
 					    	ingredient["image_url"] = recipe["images"][0]["hostedLargeUrl"];
 					    	ingredient["recipe1_name"] = recipe["name"];
@@ -210,7 +211,7 @@ function populateIngredients(selectedIngredients) {
 				showRecipes();
 				changeURL(selectedIngredients);
 			}
-		}, 500)
+		}, 500);
 	})(0);
 
 }
@@ -247,13 +248,6 @@ function setStage() {
 	$(".viz-copy").removeClass("viz-copy-start");
 	$(".viz-source").fadeOut(200);
 }
-
-
-
-
-
-
-
 
 
 
